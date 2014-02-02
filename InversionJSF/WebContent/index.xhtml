@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+   
+    	<script type="text/javascript">
+	function close_window() {
+	  if (confirm("¿Desea cerrar la aplicación?")) {
+		  open(location, '_self').close();
+	  }
+	}
+	</script>
+    
+    	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>fmsInversión - Identificación</title>
+        
+        <link type="text/css" href="./css/cssStyle.css" rel="stylesheet" />
+	   
+        
+</h:head>
+    
+<h:body>
+
+	<div>
+	<h1>fmsInversion</h1>
+	<div></div>
+	
+	
+	<h4>Introduzca su usuario y contraseña</h4>
+	
+	<h:form>
+		<center>
+		<div>
+		<table class="styleTableForm">
+		<tr>
+			<td><br></br></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>
+				<h5>Usuario</h5>
+			</td>
+			<td >
+				<h:inputText id="user" value="#{enterSandMan.user}" class="#{enterSandMan.colorBackground1}" size="15" title="Entre 6 y 15 caracteres" >			
+				</h:inputText> 
+			</td>
+		</tr>
+		<tr>
+		<td><br></br></td>
+		<td></td>
+		</tr>
+		
+		<tr>
+			<td>
+				<h5>Contraseña</h5>
+			</td>
+			<td>
+				<h:inputSecret id="passw" value="#{enterSandMan.passw}" class="#{enterSandMan.colorBackground1}" size="15" title="Entre 6 y 15 caracteres" >
+					
+				</h:inputSecret>
+
+			</td>
+		</tr>
+		<tr>
+		<td><br></br></td>
+		<td></td>
+		</tr>
+				
+		</table>
+		</div>
+			<br></br>
+		<div>
+		<table class="styleTableButtons">
+			<tr>
+				<td align="center">
+					<h:commandButton id="entrar" action="#{enterSandMan.processIdentify}" value="Login" styleClass="styleButtons" title="Pulse para entrar en la aplicación">
+					</h:commandButton>
+				</td>
+				<td align="center">
+                    <h:commandButton id="salir" value="Salir" onclick="javascript:close_window();" styleClass="styleButtons" title="Pulse para cerrar la aplicación"></h:commandButton>
+				</td>
+				<td align="center">
+					<h:commandButton id="nuevo" action="#{enterSandMan.createNewUser}" value="Alta usuario" styleClass="styleButtons" title="Pulse para darse de alta en la aplicación"></h:commandButton>
+				</td>
+			</tr>
+		</table>
+		<br></br>
+		</div>
+		</center>
+	</h:form>
+	</div>
+	
+</h:body>
+
+</html>

@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+</h:head>
+<h:body>
+		<ui:composition template="./WEB-INF/templates/Facelets.xhtml" >      
+        
+        <ui:define name="center">
+        				<h2>Cuentas de Inversión</h2>
+        	<h:form>
+        	
+        	<table class="styleTableForm">
+			<tr>
+				<td align="left">
+					<h5>Seleccione cuenta...</h5>
+				</td>
+				<td align="center">
+					<h:selectOneMenu value="#{cuentasBean.account}" valueChangeListener="#{cuentasBean.selectAccount}" onchange="submit()">
+   						<f:selectItems value="#{cuentasBean.accountsList}" />	    							
+					</h:selectOneMenu>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Nombre cuenta</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="account" value="#{cuentasBean.account}" disabled="#{cuentasBean.disabledComponents}" class="#{cuentasBean.backGroundComponent1}" maxlength="25" size="25" title="Entre 3 y 25 caracteres" ></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Comisión fija</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="fix" value="#{cuentasBean.fix}" disabled="#{cuentasBean.disabledComponents}" class="#{cuentasBean.backGroundComponent2}" maxlength="25" size="25" title="Valor monetario: Introduzca un numero"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Comisión %</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="percent" value="#{cuentasBean.percent}" disabled="#{cuentasBean.disabledComponents}" class="#{cuentasBean.backGroundComponent3}" maxlength="25" size="25" title="Porcentaje: Introduzca un numero"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Impuesto %</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="tax" value="#{cuentasBean.tax}" disabled="#{cuentasBean.disabledComponents}" class="#{cuentasBean.backGroundComponent4}" maxlength="25" size="25" title="Porcentaje: Introduzca un numero"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Otros costes</h5>
+				</td>
+				<td align="center">
+				<h:inputText id="otherCost" value="#{cuentasBean.otherCost}" disabled="#{cuentasBean.disabledComponents}" class="#{cuentasBean.backGroundComponent5}" maxlength="25" size="25" title="Valor monetario: Introduzca un numero"></h:inputText>
+				</td>
+			</tr>
+			</table>
+        
+			<br />
+
+			<table class="styleTableButtons">
+			<tr>
+				<td>
+					<h:commandButton value="Añadir" action="#{cuentasBean.anadir}" disabled="#{cuentasBean.disabledAnadir}" class="styleButtons" title="Pulse para añadir una nueva cuenta"></h:commandButton>
+				</td>
+				<td>
+					<h:commandButton value="#{cuentasBean.nameBotonCambiar}" action="#{cuentasBean.cambiar}" disabled="#{cuentasBean.disabledCambiar}" class="styleButtons" onclick="#{cuentasBean.onClickBotonCambiar}" title="#{cuentasBean.titleBotonCambiar}"></h:commandButton>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:commandButton value="Eliminar" action="#{cuentasBean.eliminar}" disabled="#{cuentasBean.disabledEliminar}" class="styleButtons" onclick="return confirm('¿ Desea eliminar completamente esta cuenta?');" title="Pulse para eliminar la cuenta"></h:commandButton>
+				</td>
+				<td>
+					<h:commandButton value="Cancelar" action="#{cuentasBean.cancelar}" disabled="#{cuentasBean.disabledCancelar}" class="styleButtons" title="Pulse para cancelar la modificación"></h:commandButton>
+				</td>
+			</tr>
+			</table>
+			
+			</h:form>
+			
+			<br />
+        </ui:define>
+            	
+        </ui:composition>
+ 
+</h:body>
+</html>

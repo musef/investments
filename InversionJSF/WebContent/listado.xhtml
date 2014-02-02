@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core" >
+<h:head>
+
+</h:head>
+<h:body>
+		<ui:composition template="./WEB-INF/templates/Facelets.xhtml" >      
+        
+        <ui:define name="center">
+               	<h2>Listado de operaciones</h2>
+                	
+           	<h:form>					
+    			<h:dataTable var="resultado" value="#{historicoBean.resultado}" styleClass="styleTableList">
+                                        <h:column class="centrar">
+						<f:facet name="header">Fecha</f:facet>
+						#{resultado[1]}
+					</h:column>
+					<h:column class="ajustLeft">
+						<f:facet name="header" >Título</f:facet>
+						#{resultado[2]}</h:column>
+					<h:column class="centrar">
+						<f:facet name="header">Operación</f:facet>
+						#{resultado[3]}
+					</h:column>
+					<h:column class="centrar">
+						<f:facet name="header">Cantidad</f:facet>
+						#{resultado[4]}
+					</h:column>
+					<h:column class="centrar">
+						<f:facet name="header" >Precio</f:facet>
+						#{resultado[5]}
+					</h:column>
+					<h:column class="centrar">
+						<f:facet name="header" >Importes</f:facet>
+						#{resultado[6]}
+					</h:column>
+					<h:column class="centrar">
+						<f:facet name="header" >Modificar</f:facet> 
+						<h:commandButton value="M" action="#{operacionesBean.modifyOperation}" title="modificar" >
+    						<f:setPropertyActionListener target="#{operacionesBean.modPushed}" value="#{resultado[0]}"></f:setPropertyActionListener>
+    					</h:commandButton>
+					</h:column>
+					<h:column class="centrar">
+						<f:facet name="header" >Eliminar</f:facet>
+						<h:commandButton value="X" action="#{historicoBean.deleteOp}" title="eliminar" onclick="return confirm('¿Confirma que desea eliminar esta operación?\nLos datos no podrán recuperarse');">
+    						<f:setPropertyActionListener target="#{historicoBean.delPushed}" value="#{resultado[0]}"></f:setPropertyActionListener>
+    					</h:commandButton>
+					</h:column>
+				</h:dataTable>
+				
+				<table class="styleTableButtons">
+					<tr>
+						<td>
+    					<h:commandButton value="Volver" action="#{listadoBean.consultar}" class="styleButtons" title="Volver a consultar">
+    						<f:setPropertyActionListener target="#{listadoBean.delPushed}" value="#{resultado[0]}"></f:setPropertyActionListener>
+    					</h:commandButton>
+    					</td>
+    				</tr>
+    			</table>
+                <br />
+			</h:form>
+		</ui:define>
+
+        <br />
+        </ui:composition>
+ 
+</h:body>
+</html>

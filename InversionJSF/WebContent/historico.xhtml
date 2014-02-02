@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	
+</h:head>
+<h:body>
+		<ui:composition template="./WEB-INF/templates/Facelets.xhtml" >      
+        
+        <ui:define name="center">
+            
+                <h2>Histórico de operaciones</h2>
+            
+            <h:form>
+            
+            <table class="styleTableForm">
+			<tr>
+				<td align="left">
+				</td>
+				<td align="center">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Cuenta de inversión</h5>
+				</td>
+				<td align="center">
+					<h:selectOneMenu value="#{historicoBean.account}" >
+   						<f:selectItems value="#{historicoBean.accountsList}" />	    							
+					</h:selectOneMenu>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Título a buscar</h5>
+				</td>
+				<td align="center">
+					<h:selectOneMenu value="#{historicoBean.title}">
+   						<f:selectItems value="#{historicoBean.titlesList}" />	    							
+					</h:selectOneMenu>				
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Rango de fechas</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="fecha1" maxlength="10" class="#{historicoBean.colorBackground}" value="#{historicoBean.initialDate}"></h:inputText>
+					<h:inputText id="fecha2" maxlength="10" class="#{historicoBean.colorBackground}" value="#{historicoBean.finalDate}"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Tipo de operación</h5>
+				</td>
+				<td align="center">
+					<h:selectManyCheckbox value="#{historicoBean.type}">
+						<f:selectItems value="#{historicoBean.typesList}" />
+					</h:selectManyCheckbox>			
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+				</td>
+				<td align="center">
+				</td>
+			</tr>	
+			</table>
+             
+            <br />
+ 
+        	<table class="styleTableButtons">
+				<tr>
+					<td><h:commandButton value="Consultar" action="#{historicoBean.consultar}" class="styleButtons" title="Pulse para visualizar la consulta seleccionada"></h:commandButton></td>
+					<td><h:commandButton value="Cancelar" action="#{historicoBean.cancelar}" class="styleButtons" title="Pulse para cancelar la selección de consulta"></h:commandButton></td>
+				</tr>
+			</table> 
+			
+			</h:form>
+        </ui:define>
+
+        <br />
+        </ui:composition>
+ 
+</h:body>
+</html>

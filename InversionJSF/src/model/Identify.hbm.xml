@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-dic-2013 23:33:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.Identify" table="IDENTIFY">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="keyUser" type="java.lang.String">
+            <column name="KEYUSER" />
+        </property>
+        <property name="user" type="java.lang.String">
+            <column name="USER" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <many-to-one name="userInfo" class="model.Users" unique="true" cascade="all" lazy="false"></many-to-one>
+        <list name="account" inverse="false" table="ACCOUNTS" lazy="true">
+            <key>
+                <column name="ID" />
+            </key>
+            <list-index></list-index>
+            <one-to-many class="model.Accounts" />
+        </list>
+    </class>
+</hibernate-mapping>

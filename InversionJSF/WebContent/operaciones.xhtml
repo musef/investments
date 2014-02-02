@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+	
+</h:head>
+<h:body>
+		<ui:composition template="./WEB-INF/templates/Facelets.xhtml" >      
+            
+        <ui:define name="center">
+        
+                	<h2>Operaciones de inversión</h2>
+             
+			<h:form>
+		
+			<table class="styleTableForm">
+			<tr>
+				<td align="left">
+					<h5>Seleccione cuenta...</h5>
+				</td>
+				<td align="center">
+					<h:selectOneMenu value="#{operacionesBean.accountSelection}" valueChangeListener="#{operacionesBean.changeAccount}" onclick="submit()" >
+   						<f:selectItems value="#{operacionesBean.accountsList}" />   							
+					</h:selectOneMenu>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Nombre cuenta</h5>
+				</td>
+				<td align="center"> 
+					<h:inputText id="accountName" value="#{operacionesBean.accountName}" disabled="true" maxlength="25" size="25" class="#{operacionesBean.errores[0]}"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Título</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="nameTit" value="#{operacionesBean.nameTit}"  maxlength="25" size="25" class="#{operacionesBean.errores[1]}" title="Entre 3 y 25 caracteres"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Fecha operación</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="dateOper" value="#{operacionesBean.dateOper}" maxlength="25" size="25" class="#{operacionesBean.errores[2]}" title="Introduzca formato dd-mm-aaaa"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Tipo operación</h5>
+				</td>
+				<td align="center">
+					<h:selectOneRadio value="#{operacionesBean.typeSelection}">
+						<f:selectItem itemValue="COMPRA" itemLabel="COMPRA" />
+  						<f:selectItem itemValue="VENTA" itemLabel="VENTA" />
+					</h:selectOneRadio>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Nº títulos</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="numberTit" value="#{operacionesBean.numberTit}" maxlength="25" size="25" class="#{operacionesBean.errores[3]}" title="Introduzca el nº de títulos"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Cotización</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="prizeTit" value="#{operacionesBean.prizeTit}" maxlength="25" size="25" class="#{operacionesBean.errores[4]}" title="Introduzca precio por título"></h:inputText>
+				</td>
+			</tr>
+						<tr>
+				<td align="left">
+					<h5>Costes</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="costOper" value="#{operacionesBean.costOper}" maxlength="25" size="25" title="Opcional: introduzca el coste o pulse Calcular"></h:inputText>
+				</td>
+			</tr>
+						<tr>
+				<td align="left">
+					<h5>Importe Total</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="totalOper" value="#{operacionesBean.totalOper}" maxlength="25" size="25" class="#{operacionesBean.errores[5]}" title="Introduzca el total de la operación o pulse Calcular"></h:inputText>
+				</td>
+			</tr>
+			</table>
+		
+			<br />
+		
+        	<table class="styleTableButtons">
+				<tr>
+					<td><h:commandButton value="Calcular" action="#{operacionesBean.calcular}" class="styleButtons" title="Pulse para calcular automáticamente los gastos de la operación"></h:commandButton></td>
+					<td><h:commandButton value="Grabar" action="#{operacionesBean.recordForm}" class="styleButtons" onclick="return confirm('¿Desea grabar la operación?');" title="Pulse para grabar la operación"></h:commandButton></td>
+					<td><h:commandButton value="Cancelar" action="#{operacionesBean.cancelar}" class="styleButtons" title="Pulse para borrar los cambios"></h:commandButton></td>
+				</tr>
+			</table>
+							<script type="text/javascript">#{operacionesBean.mensaje}</script>
+			</h:form>
+			
+       	</ui:define>
+
+       	<br />
+       	</ui:composition>
+ 
+</h:body>
+</html>

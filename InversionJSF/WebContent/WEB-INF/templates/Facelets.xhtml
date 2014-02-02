@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+
+	<script type="text/javascript">
+	function close_window() {
+	  if (confirm("¿Desea cerrar la aplicación?")) {
+		  open(location, '_self').close();
+	  }
+	}
+	</script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />     
+	<title>fmsInversion</title>
+        
+        <link type="text/css" href="./css/cssStyle.css" rel="stylesheet" />
+        
+</h:head>
+<h:body>
+	    <div id="top" class="styleDiv">
+	    	<p class="styleTitle"><span>fmsInversion panel central</span></p>
+			<p class="styleDate"><span><h:outputText value="#{enterSandMan.introducing}"></h:outputText></span></p>
+                        <h:form>
+                        <p><h:commandButton value="Desconectar" class="styleDisconnect" onclick="javascript:close_window();" action="#{enterSandMan.getOut}" title="Pulse para desconectarse de la aplicación"></h:commandButton></p>
+                        </h:form>
+        	<table class="styleTableButtons">
+        		<tr>
+        			<td>
+					<h:form>
+						<h:commandButton value="Personal" action="#{enterSandMan.goToPersonal}" class="styleButtons" title="Pulse para ver sus datos personales"></h:commandButton>
+					</h:form>
+					</td>
+					<td>
+					<h:form>
+						<h:commandButton value="Cuentas" action="#{enterSandMan.goToCuentas}" class="styleButtons" title="Pulse para ver las cuentas de inversión" ></h:commandButton>
+					</h:form>
+					</td>
+					<td>
+					<h:form>
+						<h:commandButton value="Operaciones" action="#{enterSandMan.goToOperaciones}" class="styleButtons" title="Pulse para introducir operaciones"></h:commandButton>
+					</h:form>
+					</td>
+					<td>
+					<h:form>
+						<h:commandButton value="Histórico" action="#{enterSandMan.goToHistorico}" class="styleButtons"	title="Pulse para consultar operaciones grabadas"></h:commandButton>
+					</h:form>
+				</td>
+			</tr>
+		</table>
+        
+        <hr />
+        
+        <div>
+            <div id="center">
+                <ui:insert name="center"></ui:insert>
+            </div>
+        </div>
+	</div>
+</h:body>
+</html>

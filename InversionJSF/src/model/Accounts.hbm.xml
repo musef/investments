@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-dic-2013 23:33:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.Accounts" table="ACCOUNTS">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="keyUser" type="java.lang.String">
+            <column name="KEYUSER" />
+        </property>
+        <property name="keyAcc" type="java.lang.String">
+            <column name="KEYACC" />
+        </property>
+        <property name="nameAcc" type="java.lang.String">
+            <column name="NAMEACC" />
+        </property>
+        <many-to-one name="userId" class="model.Identify" fetch="join">
+            <column name="USERID" />
+        </many-to-one>
+        <property name="classCom" type="java.lang.String">
+            <column name="CLASSCOM" />
+        </property>
+        <property name="fix" type="double">
+            <column name="FIX" />
+        </property>
+        <property name="percent" type="double">
+            <column name="PERCENT" />
+        </property>
+        <property name="tax" type="double">
+            <column name="TAX" />
+        </property>
+        <property name="otherCost" type="double">
+            <column name="OTHERCOST" />
+        </property>
+    </class>
+</hibernate-mapping>

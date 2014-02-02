@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	
+</h:head>
+<h:body>
+		<ui:composition template="./WEB-INF/templates/Facelets.xhtml" >      
+  
+        <ui:define name="center">
+ 							<h2>Datos personales</h2>
+        <h:form>
+        	<table class="styleTableForm">
+			<tr>
+				<td align="left">
+					<h5>Usuario</h5>
+				</td>
+				<td align="center">
+					<h:inputHidden id="idUser" value="#{personalBean.id}"></h:inputHidden>
+					<h:inputText id="login" value="#{personalBean.login}" disabled="#{personalBean.disabledComponent}" maxlength="25" size="25" title="Entre 6 y 15 caracteres"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Contraseña</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="password" value="#{personalBean.passw}" disabled="#{personalBean.disabledComponent}" maxlength="25" size="25" title="Entre 6 y 15 caracteres"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Nombre completo</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="name" value="#{personalBean.name}" disabled="#{personalBean.disabledComponent}" maxlength="25" size="25" title="Entre 6 y 50 caracteres"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Dirección</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="address" value="#{personalBean.address}" disabled="#{personalBean.disabledComponent}" maxlength="25" size="25" title="Entre 5 y 50 caracteres"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Localidad</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="city" value="#{personalBean.city}" disabled="#{personalBean.disabledComponent}" maxlength="25" size="25" title="Entre 3 y 25 caracteres"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Código Postal</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="codpost" value="#{personalBean.codpost}" disabled="#{personalBean.disabledComponent}" maxlength="25" size="25" title="Deben ser 5 números"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>N.I.F.</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="nif" value="#{personalBean.nif}" disabled="#{personalBean.disabledComponent}" maxlength="25" size="25" title="Deben ser 9 caracteres"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Email</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="email" value="#{personalBean.email}" disabled="#{personalBean.disabledComponent}" maxlength="25" size="25" title="Opcional: max. 40 caracteres"></h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<h5>Telefono</h5>
+				</td>
+				<td align="center">
+					<h:inputText id="phone" value="#{personalBean.phone}" disabled="#{personalBean.disabledComponent}" maxlength="25" size="25"  title="Opcional: max. 9 caracteres"></h:inputText>
+				</td>
+			</tr>
+			
+			</table>
+       
+     		<br />
+     	
+        	<table class="styleTableButtons">
+        		<tr>
+					<td><h:commandButton value="#{personalBean.nombreBotonModificar}" action="#{personalBean.modificar}" class="styleButtons"  title="#{personalBean.titleBotonModificar}"></h:commandButton></td>
+					<td><h:commandButton value="Cancelar" action="#{personalBean.cancelar}" disabled="#{personalBean.disabledComponent}" class="styleButtons"  title="Pulse para cancelar la modificación"></h:commandButton></td>		
+				</tr>
+			</table>
+							<script type="text/javascript">#{personalBean.mensaje}</script>
+		</h:form>
+        </ui:define>
+        
+        
+        		
+           	<br />
+        </ui:composition>
+ 
+</h:body>
+</html>

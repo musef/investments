@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-dic-2013 23:33:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.Operations" table="OPERATIONS">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="keyAcc" type="java.lang.String">
+            <column name="KEYACC" />
+        </property>
+        <property name="market" type="java.lang.String">
+            <column name="MARKET" />
+        </property>
+        <property name="keyUser" type="java.lang.String">
+            <column name="KEYUSER" />
+        </property>
+        <property name="invName" type="java.lang.String">
+            <column name="INVNAME" />
+        </property>
+        <property name="numberTit" type="int">
+            <column name="NUMBERTIT" />
+        </property>
+        <property name="prizeTit" type="double">
+            <column name="PRIZETIT" />
+        </property>
+        <property name="costTit" type="double">
+            <column name="COSTTIT" />
+        </property>
+        <property name="fecha" type="java.sql.Date">
+            <column name="FECHA" />
+        </property>
+        <property name="typeOper" type="java.lang.String">
+            <column name="TYPEOPER" />
+        </property>
+    </class>
+</hibernate-mapping>
